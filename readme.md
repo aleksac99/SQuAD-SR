@@ -56,6 +56,8 @@ This work reports the following results:
 | mBERT-SQuAD-sr-lat  | 69.32       | 80.11    |
 | XLM-R-SQuAD-sr-lat  | 71.04       | 81.62    |
 
+_XLM-R-SQuAD-sr-lat_ is released publicly and available [here](https://huggingface.co/aleksahet/xlm-r-squad-sr-lat).
+
 ## Future Work
 
 In the future, the plan is to perform much more in-depth analysis of synthetic dataset, and modify synthesis pipeline to obtain dataset which has higher quality. The plan is to open-source that dataset, and finetune and evaluate models to hopefully achieve even better results than reported now.
