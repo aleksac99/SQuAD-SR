@@ -1,7 +1,9 @@
 # Synthetic Dataset Creation and Fine-Tuning of Transformer Models for Question Answering in Serbian
 
 The paper is publiclly available at [arXiv](https://arxiv.org/abs/2404.08617).
+
 The best performing model (BERTić finetuned on Latin version of the dataset) is publicly available at [HuggingFace](https://huggingface.co/aleksahet/BERTic-squad-sr-lat).
+
 The synthetic dataset is available at [Kaggle](https://www.kaggle.com/datasets/aleksacvetanovic/squad-sr).
 
 ## Abstract
