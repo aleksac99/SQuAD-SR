@@ -1,9 +1,11 @@
-# Neural Network for Extractive Question Answering finetuned on synthetically translated dataset to Serbian Language
+# Synthetic Dataset Creation and Fine-Tuning of Transformer Models for Question Answering in Serbian
 
-This repository contains code that accompanies research for my thesis. It contains scripts for crafting synthetically translated SQuAD Dataset to Serbian language, notebook for finetuning an Extractive Question Answering models, and notebooks for dataset analysis, model evaluation and model error analysis.
+The paper is publiclly available at [arXiv](https://arxiv.org/abs/2404.08617).
+The best performing model (BERTić finetuned on Latin version of the dataset) is publicly available at [HuggingFace](https://huggingface.co/aleksahet/BERTic-squad-sr-lat).
+The synthetic dataset is available at [Kaggle](https://www.kaggle.com/datasets/aleksacvetanovic/squad-sr).
 
 ## Abstract
-When it comes to any Natural Language Processing task, there’s a huge gap between the research done about English and the research done about low-resource languages, including Serbian. This thesis tries to bridge this gap by tackling the Extractive Question Answering task in Serbian. To acquire necessary training data, it examines a method for synthetic dataset creation, based on Stanford Question Answering Dataset. Contributions of this work are the following: two synthetically crafted Question Answering datasets are obtained (both in Cyrillic and Latin script), their quality and usability is briefly analyzed, four finetuned models are obtained (two for each script), from which the best one is released, and finally the evaluation and brief error analysis of the model is performed. Acquired results are compared to existing similar research, English state-of-the-art and human baseline, and future improvements are proposed.
+In this paper, we focus on generating a synthetic question answering (QA) dataset using an adapted Translate-Align-Retrieve method. Using this method, we created the largest Serbian QA dataset of more than 87K samples, which we name SQuAD-sr. To acknowledge the script duality in Serbian, we generated both Cyrillic and Latin versions of the dataset. We investigate the dataset quality and use it to fine-tune several pre-trained QA models. Best results were obtained by fine-tuning the BERTić model on our Latin SQuAD-sr dataset, achieving 73.91% Exact Match and 82.97% F1 score on the benchmark XQuAD dataset, which we translated into Serbian for the purpose of evaluation. The results show that our model exceeds zero-shot baselines, but fails to go beyond human performance. We note the advantage of using a monolingual pre-trained model over multilingual, as well as the performance increase gained by using Latin over Cyrillic. By performing additional analysis, we show that questions about numeric values or dates are more likely to be answered correctly than other types of questions. Finally, we conclude that SQuAD-sr is of sufficient quality for fine-tuning a Serbian QA model, in the absence of a manually crafted and annotated dataset. 
 
 ## Dependencies
 Pipeline utilizes publicly available libraries. Python libraries are listed in `requirements.txt`. Notable projects and libraries are:
@@ -45,22 +47,3 @@ In this section three notebooks are provided:
 * `model_error_analysis.ipynb` - which provides analysis of extracted samples
 
 To use any of these notebooks, please change file paths in order to sucessfully load model and required data.
-
-## Results
-This work reports the following results:
-
-| Model               | Exact Match | F1 Score |
-|---------------------|-------------|----------|
-| mBERT-SQuAD-sr-cyrl | 51.46       | 67.28    |
-| XLM-R-SQuAD-sr-cyrl | 53.73       | 69.45    |
-| mBERT-SQuAD-sr-lat  | 69.32       | 80.11    |
-| XLM-R-SQuAD-sr-lat  | 71.04       | 81.62    |
-
-_XLM-R-SQuAD-sr-lat_ is released publicly and available [here](https://huggingface.co/aleksahet/xlm-r-squad-sr-lat).
-
-## Future Work
-
-In the future, the plan is to perform much more in-depth analysis of synthetic dataset, and modify synthesis pipeline to obtain dataset which has higher quality. The plan is to open-source that dataset, and finetune and evaluate models to hopefully achieve even better results than reported now.
-
-## References
-The project is inspired by Translate-Align-Retrieve method proposed [here](https://arxiv.org/pdf/1912.05200.pdf) and adapts some parts of the code and naming conventions from [here](https://github.com/ccasimiro88/TranslateAlignRetrieve). Translation model used is published as a part of [NLLB](https://ai.facebook.com/research/no-language-left-behind/) project. For finetuning, considered models are [mBERT](https://arxiv.org/abs/1810.04805) and [XLM-R](https://arxiv.org/abs/1911.02116).
