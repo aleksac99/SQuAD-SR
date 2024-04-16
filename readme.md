@@ -48,4 +48,4 @@ In this section three notebooks are provided:
 * `model_evaluation.ipynb` - for finetuned model evaluation and extraction of incorrect samples
 * `model_error_analysis.ipynb` - which provides analysis of extracted samples
 
-To use any of these notebooks, please change file paths in order to sucessfully load model and required data.
+To use any of these notebooks, please change file paths in order to successfully load model and required data.
